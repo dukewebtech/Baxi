@@ -1,4 +1,12 @@
 
+<script>
+  $(document).ready(function(){
+    $("button").click(function(){
+      $("#cars").load("http://127.0.0.1:8000/dstv");
+    });
+  });
+  </script>
+
 
   <!-- The DSTV -->
  

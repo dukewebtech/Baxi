@@ -9,7 +9,24 @@
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
     <title>DukePay</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#btngotv").click(function(){
+        $("#gotv").load("gotv");
+      });
+    });
+    $(document).ready(function(){
+      $("#btnstartimes").click(function(){
+        $("#btnstartimes").load("startimes");
+      });
+    });
+    $(document).ready(function(){
+      $("#btndstv").click(function(){
+        $("#dstv").load("dstv");
+      });
+    });
+    </script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -20,6 +37,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/welcome.css" rel="stylesheet">
+   
   </head>
 
   <body class="text-center">
@@ -42,19 +60,53 @@
         <p class="lead">Pay Your Utility Bills on Your Prefered Online Payment Solution. Pay Power Bills Now. Sign Up Online.
             find A Biller. Highlights: Android App Available, Live Chat Support Available</p>
         <p class="lead">
-          <a href="#" class="btn btn-lg btn-primary">DSTV </a>
+          <div class="btn-group">
+            <div id="dstv">
+              <button type="button" id="btndstv" class="btn btn-success">DSTV</button>
+            </div>
+          <div id="gotv">
+            <button type="button" id="btngotv" class="btn btn-primary">GOTV</button>
+          </div>
+          <div id="startimes" >
+            <button type="button" id="btnstartimes" class="btn btn-info">Startimes</button>
+          </div>
+           
+          </div>
+          {{-- <div>
+            <button type="button" class="btn btn-primarbtn btn-lg btn-primary" id="dstv" data-toggle="modal" data-target="#myModal">
+              DSTV
+             </button>
+          </div>
+           
+        
           <button type="button" class="btn btn-primarbtn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">
-          Gotv
+           GoTv</a>
           </button>
-          <a href="#" class="btn btn-lg btn-danger">GoTv</a>
-        </p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-success">StarTimes</a>
-        </p>
+        </p> --}}
+        
 
-        <!-- The Modal -->
-  @include('modal');
+        {{-- <p class="lead">
+        
+          <button type="button" class="btn btn-primarbtn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">
+            <a href="http://127.0.0.1:8000/startimes" class="btn btn-lg btn-success">StarTimes</a>
+          </button>
+        </p> --}}
 
+        {{-- <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+        <button>Get External Content</button> --}}
+       
+     @if(empty($mydata)){
+     {{ "Guy it is null"}}
+     }
+      @else{
+        
+                  @foreach ($mydata["data"] as $package)
+                <option value="volvo">{{$package["name"]}}</option>
+                 @endforeach
+      
+      }
+
+      @endif
 
 
 
@@ -89,9 +141,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
-  </body>
+  </body> --}}
 </html>

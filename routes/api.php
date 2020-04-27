@@ -18,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/balance','BaxiServiceController@accountBalance');
-Route::POST('/packages','BaxiServiceController@retrieveProviderBouquets');
-Route::POST('/package','BaxiServiceController@retrieveProviderAddons');
+// Route::get('/balance','BaxiServiceController@accountBalance');
+// Route::POST('/packages','BaxiServiceController@retrieveProviderBouquets');
+// Route::POST('/package','BaxiServiceController@retrieveProviderAddons');
+
+
+Route::get('/balance','TestdataController@accountBalance');
+Route::POST('/packages','TestdataController@retrieveProviderBouquets');
+Route::POST('/{serviceType}/{productCode}','TestdataController@retrieveProviderAddons');
+
+Route::POST('/{serviceType}','TestdataController@retrieveTheBouquets');

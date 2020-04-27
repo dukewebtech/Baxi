@@ -13,20 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('test');
+// });
+
 Route::get('/', function () {
     return view('test');
 });
-
-Route::get('/m', function () {
-    return view('modal');
+Route::get('/mydata', function () {
+    return view('mydata');
+});
+Route::get('/ms', function () {
+    return view('mytry');
 });
 
+Route::get('/{servicetype}', 'BaxiServiceController@retrieveallBouquets');
 
-Route::get('/', 'BaxiServiceController@retrieveDstvBouquets');
-Route::get('/form', 'BaxiServiceController@retrieveProviderAddons');
+// Route::get('/{serviceType}/{productCode}', 'BaxiServiceController@retrieveProviderAddons');
+Route::get('/form/{serviceType}/{productCode}', 'BaxiServiceController@retrieveProviderAddons');
 
 
 Route::get('/gotv', 'BaxiServiceController@retrieveProviderAddons');
 Route::get('/startimes', 'BaxiServiceController@retrieveProviderAddons');
 Route::get('/dstv', 'BaxiServiceController@retrieveProviderAddons');
-
+Route::get('/submitForm', 'BaxiServiceController@retrieveProviderAddons');
